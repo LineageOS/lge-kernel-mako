@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "AAAAeX//7Zk\u003d",
+        "filename": "arch/arm/mach-msm/lge/devices_lge.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 883
+      },
+      "writtenOn": "2013-03-16T03:30:35Z",
+      "side": 1,
+      "message": "is this even needed?",
+      "revId": "976db9d30f32f3ac160f6c3b945c331a2604b438",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
