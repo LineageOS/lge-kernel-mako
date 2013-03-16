@@ -16,6 +16,23 @@
       "revId": "976db9d30f32f3ac160f6c3b945c331a2604b438",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAAeX//7XE\u003d",
+        "filename": "arch/arm/mach-msm/lge/devices_lge.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 431
+      },
+      "writtenOn": "2013-03-16T06:49:36Z",
+      "side": 1,
+      "message": "These are synonymous, why are you changing this? Your change doesn\u0027t have correct indentation either.",
+      "revId": "976db9d30f32f3ac160f6c3b945c331a2604b438",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
