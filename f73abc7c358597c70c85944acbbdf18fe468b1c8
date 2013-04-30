@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "AAAAfH//+Ps\u003d",
+        "filename": "drivers/video/msm/mipi_lgit.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 4884
+      },
+      "writtenOn": "2013-04-30T01:24:42Z",
+      "side": 1,
+      "message": "whitespace",
+      "revId": "f73abc7c358597c70c85944acbbdf18fe468b1c8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
