@@ -391,6 +391,7 @@ void SynaEnableFlashing(struct synaptics_ts_data *ts)
 {
 	unsigned char uData;
 	unsigned char uStatus;
+	unsigned char uCounter;
 	TOUCH_INFO_MSG("%s", __FUNCTION__);
 
 	TOUCH_INFO_MSG("\nEnable Reflash...");
@@ -418,12 +419,13 @@ void SynaEnableFlashing(struct synaptics_ts_data *ts)
 		SynaSetup(ts);
 		/* Read the "Program Enabled" bit of the F34 Control register,
 		   and proceed only if the bit is set. */
+		uCounter = 100;
 		do {
 			readRMI(ts->client, SynaF34_FlashControl, &uData, 1);
 			/* In practice, if uData!=0x80 happens for multiple counts,
 			   it indicates reflash */
 			// is failed to be enabled, and program should quit
-		} while (uData != 0x80);
+		} while (uData != 0x80 && --uCounter > 0);
 	}
 
 }
