@@ -393,6 +393,7 @@ static int msm_pcm_capture_close(struct snd_pcm_substream *substream)
 	msm_adsp_put(prtd->audrec);
 	msm_adsp_put(prtd->audpre);
 	kfree(prtd);
+	runtime->private_data = NULL;
 
 	return 0;
 }
@@ -449,6 +450,7 @@ static int msm_pcm_open(struct snd_pcm_substream *substream)
 
  out:
 	kfree(prtd);
+	runtime->private_data = NULL;
 	return ret;
 }
 
@@ -492,6 +494,7 @@ static int msm_pcm_playback_close(struct snd_pcm_substream *substream)
 	alsa_audio_disable(prtd);
 	audmgr_close(&prtd->audmgr);
 	kfree(prtd);
+	runtime->private_data = NULL;
 
 	return 0;
 }

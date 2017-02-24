@@ -326,6 +326,7 @@ static int msm_afe_open(struct snd_pcm_substream *substream)
 		pr_debug("%s: Could not allocate memory\n", __func__);
 		mutex_unlock(&prtd->lock);
 		kfree(prtd);
+		runtime->private_data = NULL;
 		return -ENOMEM;
 	}
 	hrtimer_init(&prtd->hrt, CLOCK_MONOTONIC, HRTIMER_MODE_REL);
@@ -409,6 +410,7 @@ done:
 	mutex_unlock(&prtd->lock);
 	prtd->prepared--;
 	kfree(prtd);
+	runtime->private_data = NULL;
 	return 0;
 }
 static int msm_afe_prepare(struct snd_pcm_substream *substream)

@@ -520,6 +520,7 @@ done:
 	alsa_audio_disable(prtd);
 	auddev_unregister_evt_listner(AUDDEV_CLNT_DEC, prtd->session_id);
 	kfree(prtd);
+	runtime->private_data = NULL;
 
 	return 0;
 }
@@ -574,6 +575,7 @@ static int msm_pcm_capture_close(struct snd_pcm_substream *substream)
 	audpreproc_aenc_free(prtd->session_id);
 	msm_adsp_put(prtd->audrec);
 	kfree(prtd);
+	runtime->private_data = NULL;
 	return 0;
 }
 
