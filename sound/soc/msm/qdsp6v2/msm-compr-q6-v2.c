@@ -391,6 +391,7 @@ static int msm_compr_playback_close(struct snd_pcm_substream *substream)
 	SNDRV_PCM_STREAM_PLAYBACK);
 	q6asm_audio_client_free(prtd->audio_client);
 	kfree(prtd);
+	compr->prtd = NULL;
 	return 0;
 }
 
