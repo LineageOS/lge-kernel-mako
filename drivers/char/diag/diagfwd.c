@@ -1525,6 +1525,7 @@ void diagfwd_init(void)
 	driver->read_len_legacy = 0;
 	driver->use_device_tree = has_device_tree();
 	mutex_init(&driver->diag_cntl_mutex);
+	mutex_init(&driver->cmd_reg_mutex);
 
 	success = diag_smd_constructor(&driver->smd_data[MODEM_DATA],
 					MODEM_DATA, SMD_DATA_TYPE);
