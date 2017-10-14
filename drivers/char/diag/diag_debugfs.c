@@ -29,14 +29,12 @@ static ssize_t diag_dbgfs_read_status(struct file *file, char __user *ubuf,
 {
 	char *buf;
 	int ret;
-
 	unsigned int buf_size;
 	buf = kzalloc(sizeof(char) * DEBUG_BUF_SIZE, GFP_KERNEL);
 	if (!buf) {
 		pr_err("diag: %s, Error allocating memory\n", __func__);
 		return -ENOMEM;
 	}
-
 	buf_size = ksize(buf);
 	ret = scnprintf(buf, buf_size,
 		"modem ch: 0x%x\n"
@@ -176,7 +174,8 @@ static ssize_t diag_dbgfs_read_table(struct file *file, char __user *ubuf,
 	unsigned int bytes_remaining;
 	unsigned int bytes_in_buffer = 0;
 	unsigned int bytes_written;
-	unsigned int buf_size = (DEBUG_BUF_SIZE < count) ? DEBUG_BUF_SIZE : count;
+	unsigned int buf_size;
+	buf_size = (DEBUG_BUF_SIZE < count) ? DEBUG_BUF_SIZE : count;
 
 	mutex_lock(&driver->cmd_reg_mutex);
 	if (diag_dbgfs_table_index >= diag_max_reg) {
@@ -248,9 +247,11 @@ static ssize_t diag_dbgfs_read_bridge(struct file *file, char __user *ubuf,
 	unsigned int bytes_remaining;
 	unsigned int bytes_in_buffer = 0;
 	unsigned int bytes_written;
-	unsigned int buf_size = (DEBUG_BUF_SIZE < count) ? DEBUG_BUF_SIZE : count;
+	unsigned int buf_size;
 	int bytes_hsic_inited = 45;
 	int bytes_hsic_not_inited = 410;
+
+	buf_size = (DEBUG_BUF_SIZE < count) ? DEBUG_BUF_SIZE : count;
 
 	if (diag_dbgfs_finished) {
 		diag_dbgfs_finished = 0;
